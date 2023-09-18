@@ -1,3 +1,4 @@
+#include "main.h"
 /**
  * print_int - prints an integer
  * @num: the integer to be printed
@@ -30,11 +31,13 @@ void print_int(int num, int *counter)
 	while (count > 0)
 	{
 		int divisor = 1;
+
 		for (int i = 1; i < count; i++)
 		{
 			divisor *= 10;
 		}
 		int digit = (num / divisor) % 10;
+
 		_putchar(digit + '0', counter);
 		count--;
 	}
