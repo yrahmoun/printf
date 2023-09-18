@@ -8,13 +8,9 @@
 
 void print_int(int num, int *counter)
 {
-	int is_nigative =0;
-
-	if (num < 0)
-	{
-		is_negative = 1;
-		num = -num;
-	}
+	int is_negative;
+	int index;
+	char *digits;
 
 	if (num == 0)
 	{
@@ -22,26 +18,12 @@ void print_int(int num, int *counter)
 		return;
 	}
 
-	int num_digits;
-	int temp;
-
-	num_digits = 0;
-	temp = num;
-
-	while (temp > 0)
+	is_negative = (num < 0) ? 1 : 0;
+	num = (num < 0) ? -num : num;
+	digits = (char *)malloc(12);
 	{
-		temp /= 10;
-		num_digits++;
-	}
-
-	char *digits = (char *)malloc((num_digits + 1 + is_negative) * sizeof(char));
-	if (!digits)
-	{
-		// here we should handle memory allocation failure but no need to rn
 		return;
-
 	}
-	int index;
 
 	index = 0;
 	while (num > 0)
@@ -49,17 +31,17 @@ void print_int(int num, int *counter)
 		digits[index++] = (num % 10) + '0';
 		num /= 10;
 	}
+
 	if (is_negative)
 	{
 		digits[index++] = '-';
 	}
 
-	// print string in reverse since it was reversed before
-	int i;
-
-	for (i = index - 1; i >= 0; i--)
+	while (index > 0)
 	{
-		_putchar(digits[i], counter);
+		_putchar(digits[--index], counter);
 	}
+
 	free(digits);
 }
+
