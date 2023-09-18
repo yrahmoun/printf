@@ -17,6 +17,8 @@ void handle_specifiers(va_list list, const char *format,
 		_putchar('%', counter);
 	else if (format[index + 1] == 's')
 		print_string(va_arg(list, char *), counter);
+	else if (format[index + 1] == 'd' || format[index + 1] == 'i')
+		print_int(va_arg(list, int), counter);
 }
 
 /**
@@ -31,7 +33,7 @@ int _printf(const char *format, ...)
 	int counter = 0;
 	int i = 0;
 
-	if (!format)
+	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
 	va_start(list, format);
 	while (format[i])
