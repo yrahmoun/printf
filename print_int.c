@@ -31,13 +31,14 @@ void print_int(int num, int *counter)
 	while (count > 0)
 	{
 		int divisor = 1;
+		int i;
+		int digit;
 
-		for (int i = 1; i < count; i++)
+		for (i = 1; i < count; i++)
 		{
 			divisor *= 10;
 		}
-		int digit = (num / divisor) % 10;
-
+		digit = (num / divisor) % 10;
 		_putchar(digit + '0', counter);
 		count--;
 	}
