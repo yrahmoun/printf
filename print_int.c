@@ -8,40 +8,24 @@
 
 void print_int(int num, int *counter)
 {
-	int is_negative;
-	int index;
-	char *digits;
-
-	if (num == 0)
+	if (num == -2147483648)
 	{
-		_putchar('0', counter);
-		return;
+		write(1, "-2147483648", 11);
+		*counter += 11;
+		return ;
 	}
-
-	is_negative = (num < 0) ? 1 : 0;
-	num = (num < 0) ? -num : num;
-	digits = (char *)malloc(12);
+	if (num < 0)
 	{
-		return;
+		num *= -1;
+		_putchar('-', counter);
 	}
-
-	index = 0;
-	while (num > 0)
+	if (num < 10)
 	{
-		digits[index++] = (num % 10) + '0';
-		num /= 10;
+		_putchar(num + 48, counter);
 	}
-
-	if (is_negative)
+	else
 	{
-		digits[index++] = '-';
+		print_int(num / 10, counter);
+		_putchar(num % 10 + 48, counter);
 	}
-
-	while (index > 0)
-	{
-		_putchar(digits[--index], counter);
-	}
-
-	free(digits);
 }
-
