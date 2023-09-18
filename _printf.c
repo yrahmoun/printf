@@ -39,7 +39,7 @@ int _printf(const char *format, ...)
 	va_start(list, format);
 	while (format[i])
 	{
-		if (format[i] == '%')
+		if (format[i] == '%' && format[i + 1])
 		{
 			handle_specifiers(list, format, &counter, i);
 			i++;
