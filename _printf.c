@@ -8,7 +8,6 @@
  * @index: current index in the format string
  */
 
-
 void handle_specifiers(va_list list, const char *format,
 		int *counter, int index)
 {
