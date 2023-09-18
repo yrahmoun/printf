@@ -28,6 +28,8 @@ int _printf(const char *format, ...)
 				print_string(va_arg(list, char *), &counter);
 			else if (format[i] == 'd' || format[i] == 'i')
 				print_int(va_arg(list, int), &counter);
+			else if (format[i] == 'b')
+				print_binary(va_arg(list, unsigned int), &counter);
 			else
 			{
 				_putchar('%', &counter);
