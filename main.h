@@ -9,3 +9,4 @@ void _putchar(char c, int *counter);
 void print_string(char *str, int *counter);
 
 #endif
+void print_int(int num, int *counter)
