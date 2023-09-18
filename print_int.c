@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "main.h"
 /**
  * print_int - prints an integer
@@ -7,8 +8,13 @@
 
 void print_int(int num, int *counter)
 {
-	int temp = num;
-	int count = 0;
+	int is_nigative =0;
+
+	if (num < 0)
+	{
+		is_negative = 1;
+		num = -num;
+	}
 
 	if (num == 0)
 	{
@@ -16,30 +22,44 @@ void print_int(int num, int *counter)
 		return;
 	}
 
-	while (temp != 0)
+	int num_digits;
+	int temp;
+
+	num_digits = 0;
+	temp = num;
+
+	while (temp > 0)
 	{
 		temp /= 10;
-		count++;
+		num_digits++;
 	}
 
-	if (num < 0)
+	char *digits = (char *)malloc((num_digits + 1 + is_negative) * sizeof(char));
+	if (!digits)
 	{
-		_putchar('-', counter);
-		num = -num;
-	}
+		// here we should handle memory allocation failure but no need to rn
+		return;
 
-	while (count > 0)
+	}
+	int index;
+
+	index = 0;
+	while (num > 0)
 	{
-		int divisor = 1;
-		int i;
-		int digit;
-
-		for (i = 1; i < count; i++)
-		{
-			divisor *= 10;
-		}
-		digit = (num / divisor) % 10;
-		_putchar(digit + '0', counter);
-		count--;
+		digits[index++] = (num % 10) + '0';
+		num /= 10;
 	}
+	if (is_negative)
+	{
+		digits[index++] = '-';
+	}
+
+	// print string in reverse since it was reversed before
+	int i;
+
+	for (i = index - 1; i >= 0; i--)
+	{
+		_putchar(digits[i], counter);
+	}
+	free(digits);
 }
