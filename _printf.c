@@ -18,8 +18,8 @@ void handle_specifiers(va_list list, const char *format,
 		_putchar('%', counter);
 	else if (format[index + 1] == 's')
 		print_string(va_arg(list, char *), counter);
-	else
-		_putchar(format[index + 1], counter);
+	else if (format[index + 1] == 'd' || format[index + 1] == 'i')
+		print_int(va_arg(list, int), counter);
 }
 
 /**
@@ -54,10 +54,10 @@ int _printf(const char *format, ...)
 }
 
 /**
- *  * print_int - prints an integer
- *   * @num: the integer to be printed
- *    * @counter: counts characters printed
- *     */
+ * print_int - prints an integer
+ * @num: the integer to be printed
+ * @counter: counts characters printed
+ */
 void print_int(int num, int *counter)
 {
 	int temp = num;
