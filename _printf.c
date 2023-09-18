@@ -20,6 +20,32 @@ void handle_specifiers(va_list list, const char *format,
 }
 
 /**
+ * check_errors - checks for errors in _printf
+ * @s: format string
+ * Return: 1 or 0
+ */
+
+int check_errors(char *s)
+{
+	int i = 0;
+
+	if (!s)
+		return (1);
+	while (s[i])
+	{
+		if (s[i] == '%')
+		{
+			while (s[i] <= 32)
+				i++;
+			if (!s[i])
+				return (1);
+		}
+		i++;
+	}
+	return (0);
+}
+
+/**
  * _printf - prints anything passed to it
  * @format: string holding what to print
  * Return: number of characters printed by the function
@@ -31,6 +57,8 @@ int _printf(const char *format, ...)
 	int counter = 0;
 	int i = 0;
 
+	if (check_errors(format))
+		return (-1);
 	va_start(list, format);
 	while (format[i])
 	{
