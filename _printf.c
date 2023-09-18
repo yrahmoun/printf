@@ -17,6 +17,8 @@ void handle_specifiers(va_list list, const char *format,
 		_putchar('%', counter);
 	else if (format[index + 1] == 's')
 		print_string(va_arg(list, char *), counter);
+	else
+		_putchar(format[index + 1], counter);
 }
 
 /**
