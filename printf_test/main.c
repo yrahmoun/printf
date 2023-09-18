@@ -18,5 +18,7 @@ int main(void)
 	printf("character printed: %d\n", counter);
 	counter = _printf("%s\n", null);
 	printf("character printed: %d\n", counter);
+	counter = _printf("");
+	printf("character printed: %d\n", counter);
 	return (0);
 }
