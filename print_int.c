@@ -12,7 +12,7 @@ void print_int(int num, int *counter)
 	{
 		write(1, "-2147483648", 11);
 		*counter += 11;
-		return ;
+		return;
 	}
 	if (num < 0)
 	{
