@@ -1,6 +1,27 @@
 #include "main.h"
 
 /**
+ * handle_rest - handles more cases of specifiers
+ * @format: string holding specifiers
+ * @list: list of arguments
+ * @i: current position in the string
+ * @counter: counts characters printed
+ */
+
+void handle_rest(const char *format, va_list list, int i, int *counter)
+{
+	if (format[i] == 'u' || format[i] == 'o' || format[i] == 'x'
+			|| format[i] == 'X')
+		handle_uoxX(format[i], list, counter);
+	else
+	{
+		_putchar('%', counter);
+		if (format[i])
+			_putchar(format[i], counter);
+	}
+}
+
+/**
  * _printf - prints anything passed to it
  * @format: string holding what to print
  * Return: number of characters printed by the function
@@ -33,11 +54,7 @@ int _printf(const char *format, ...)
 			else if (format[i] == 'p')
 				print_address(va_arg(list, unsigned long), &counter);
 			else
-			{
-				_putchar('%', &counter);
-				if (format[i])
-					_putchar(format[i], &counter);
-			}
+				handle_rest(format, list, i, &counter);
 		}
 		else
 			_putchar(format[i], &counter);
