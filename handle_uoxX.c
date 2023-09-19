@@ -63,7 +63,7 @@ void print_hex(unsigned int n, char *base, int *counter)
 }
 
 /**
- * handle_uoxX - handles cases %u %o %x %X
+ * handle_uoxX - handles %u %o %x %X specifiers
  * @c: specifier
  * @list: list of arguments
  * @counter: counts characters printed
