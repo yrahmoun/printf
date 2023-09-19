@@ -1,4 +1,5 @@
 #include "main.h"
+#include <ctype.h>
 
 /**
  * handle_rest - handles more cases of specifiers
@@ -53,6 +54,8 @@ int _printf(const char *format, ...)
 				print_binary(va_arg(list, unsigned int), &counter);
 			else if (format[i] == 'p')
 				print_address(va_arg(list, unsigned long), &counter);
+			else if (format[i] == 'R')
+				print_rot13(va_arg(list, char *), &counter);
 			else
 				handle_rest(format, list, i, &counter);
 		}
