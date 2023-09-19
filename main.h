@@ -12,5 +12,6 @@ void print_binary(unsigned int num, int *counter);
 void print_address(unsigned long n, int *counter);
 void handle_uoxX(char c, va_list list, int *counter);
 void print_rot13(const char *str, int *counter);
+char *reverse_string(const char *input);
 
 #endif

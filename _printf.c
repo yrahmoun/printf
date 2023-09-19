@@ -1,5 +1,6 @@
 #include "main.h"
 #include <ctype.h>
+#include <stdlib.h>
 
 /**
  * handle_rest - handles more cases of specifiers
@@ -14,6 +15,22 @@ void handle_rest(const char *format, va_list list, int i, int *counter)
 	if (format[i] == 'u' || format[i] == 'o' || format[i] == 'x'
 			|| format[i] == 'X')
 		handle_uoxX(format[i], list, counter);
+	else if (format[i] == 'r')
+	{
+		char *input_str = va_arg(list, char *);
+
+		if (input_str)
+		{
+			char *reversed_str = reverse_string(input_str);
+
+			if (reversed_str)
+			{
+				print_string(reversed_str, counter);
+				free(reversed_str);
+			}
+
+		}
+	}
 	else
 	{
 		_putchar('%', counter);
