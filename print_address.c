@@ -2,7 +2,7 @@
 
 /**
  * print_address - prints the address of a variable
- * @n: variable
+ * @n: variable to print it's adress
  * @counter: counts characters printed
  */
 
