@@ -27,6 +27,7 @@ void print_octal(unsigned int n, int *counter)
 {
 	char octal[100];
 	int i = 0;
+	int j = 0;
 
 	if (!n)
 	{
@@ -39,7 +40,7 @@ void print_octal(unsigned int n, int *counter)
 		n /= 8;
 		i++;
 	}
-	for (int j = i - 1; j >= 0; j--)
+	for (j = i - 1; j >= 0; j--)
 		_putchar(octal[j] + 48, counter);
 }
 
