@@ -1,8 +1,7 @@
 #include "main.h"
 
 /**
- * handle_S - handles custom specifier for non printable
- * characters
+ * handle_S - handles custom specifier for non printable characters
  * @s: string to print
  * @counter: counts characters printed
  */
