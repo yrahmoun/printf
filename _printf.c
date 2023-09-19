@@ -31,6 +31,8 @@ void handle_rest(const char *format, va_list list, int i, int *counter)
 
 		}
 	}
+	else if (format[i] == 'S')
+		handle_S(va_arg(list, char *), counter);
 	else
 	{
 		_putchar('%', counter);

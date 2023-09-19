@@ -20,5 +20,7 @@ int main(void)
 	printf("character printed: %d\n", counter);
 	counter = _printf("");
 	printf("character printed: %d\n", counter);
+	_printf("%S\n", "Best\nSchool");
+	_printf("%S\n", "Best\v\tSchool");
 	return (0);
 }
