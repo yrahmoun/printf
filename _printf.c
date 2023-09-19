@@ -43,7 +43,7 @@ void handle_rest(const char *format, va_list list, int i, int *counter)
 
 /**
  * _printf - prints anything passed to it
- * @format: string holding what to print
+ * @format: string to be printed
  * Return: number of characters printed by the function
  */
 
