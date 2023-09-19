@@ -31,10 +31,7 @@ int _printf(const char *format, ...)
 			else if (format[i] == 'b')
 				print_binary(va_arg(list, unsigned int), &counter);
 			else if (format[i] == 'p')
-			{
-				print_string("0x", &counter);
 				print_address(va_arg(list, unsigned long), &counter);
-			}
 			else
 			{
 				_putchar('%', &counter);

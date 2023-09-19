@@ -14,9 +14,10 @@ void print_address(unsigned long n, int *counter)
 
 	if (!n)
 	{
-		_putchar('0', counter);
+		print_string("(nil)", counter);
 		return;
 	}
+	print_string("0x", counter);
 	while (n > 0)
 	{
 		address[i] = base[n % 16];
