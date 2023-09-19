@@ -16,7 +16,9 @@ void handle_S(char *s, int *counter)
 	{
 		if (s[i] < 32 || s[i] >= 127)
 		{
-			print_string("\\x0", counter);
+			print_string("\\x", counter);
+			if (s[i] < 16)
+				_putchar('0', counter);
 			print_hex((unsigned int)s[i], base, counter);
 		}
 		else
